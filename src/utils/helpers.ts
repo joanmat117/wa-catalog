@@ -108,14 +108,14 @@ export function buildWhatsAppMessage(
   );
   const lines = items.map(
     (item) =>
-      `• ${item.name} x${item.quantity} — ${item.price.toLocaleString('es-CU')} CUP`,
+      `• ${item.name} x${item.quantity} — ${formatPrice(item.price)}`,
   );
   const message = [
     '🛒 *Nuevo Pedido*',
     '',
     ...lines,
     '',
-    `*Total: ${total.toLocaleString('es-CU')} CUP*`,
+    `*Total: ${formatPrice(total)}*`,
   ].join('\n');
   return message;
 }
