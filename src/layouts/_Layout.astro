@@ -1,5 +1,7 @@
 ---
 import { APP_DESC, APP_NAME, resolveUrlBase } from '@/utils/helpers';
+import logoImg from '@/assets/logo_only_icon.webp';
+import { getCanonicalUrl } from '@/utils/helpers';
 import '../styles/global.css';
 
 interface Props {
@@ -7,14 +9,23 @@ interface Props {
   description?: string;
   iconHref?: string;
   iconType?: string;
+  ogImage?: string;
 }
 
 const {
   title = APP_NAME,
   description = APP_DESC,
-  iconHref = resolveUrlBase('/favicon.svg'),
-  iconType = 'image/svg+xml',
+  iconHref = import.meta.env.PUBLIC_FAVICON_URL ?? resolveUrlBase('/favicon.svg'),
+  iconType = 'image/x-icon',
+  ogImage,
 } = Astro.props;
+
+const ogImageUrl =
+  ogImage ??
+  (import.meta.env.PUBLIC_LOGO_IMAGE_URL ?? "");
+
+// Helper to get canonical URL for og:url
+const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
 ---
 
 <!doctype html>
@@ -23,8 +34,23 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <meta name="title" content={title} />
     <link rel="icon" type={iconType} href={iconHref} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={title} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
   </head>
   <body class="min-h-screen flex flex-col">
     <slot />

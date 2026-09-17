@@ -120,7 +120,7 @@ export default function ProductCatalog({
       <section id="products" class="mb-10">
         <div class="flex items-center justify-between mb-5">
           <h2 class="font-display font-bold text-xl sm:text-2xl flex items-center text-gray-800">
-            <IconShopBag class="size-8 mr-2 text-purple-500" />
+            <IconShopBag class="size-8 mr-2 text-primary-500" />
             <span> Todos los productos </span>
           </h2>
         </div>

@@ -1,7 +1,7 @@
-export const BASE_URL = import.meta.env.BASE_URL || '/';
+export const BASE_URL = import.meta.env.PUBLIC_BASE_URL ?? import.meta.env.BASE_URL ?? '/';
 
-export const APP_VIP_CODE = import.meta.env.PUBLIC_APP_VIP_CODE || 'gitana';
-export const APP_NAME = import.meta.env.PUBLIC_APP_NAME || 'La Gitana Shop';
+export const APP_VIP_CODE = import.meta.env.PUBLIC_APP_VIP_CODE || 'jmcode';
+export const APP_NAME = import.meta.env.PUBLIC_APP_NAME || 'JMShop';
 export const APP_DESC =
   import.meta.env.PUBLIC_APP_DESC ||
   'Tienda variada con los mejores productos al mejor precio.';
@@ -12,7 +12,7 @@ export const BANNER_CONTENT =
   'Productos variados con la mejor calidad y precios accesibles. ¡Tu tienda de confianza te espera!';
 
 export const WHATSAPP_NUMBER =
-  import.meta.env.PUBLIC_WHATSAPP_NUMBER || '5351234567';
+  import.meta.env.PUBLIC_WHATSAPP_NUMBER || '5356876678';
 export const WHATSAPP_LINK = 'https://wa.me/' + WHATSAPP_NUMBER;
 
 export const STORE_LOCATION =
@@ -92,4 +92,15 @@ export function getWhatsAppUrl(
 ): string {
   const message = buildWhatsAppMessage(items);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
+/**
+ * Returns the absolute URL for the current pathname.
+ * Used for Open Graph og:url.
+ * If PUBLIC_SITE is set, uses it as base; otherwise uses empty string (relative).
+ */
+export function getCanonicalUrl(pathname: string): string {
+  const base = import.meta.env.PUBLIC_SITE ?? '';
+  // Remove trailing slash from base and leading slash from pathname to avoid double slash
+  return base.replace(/\/+$/, '') + pathname;
 }

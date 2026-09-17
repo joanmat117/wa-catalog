@@ -2,11 +2,11 @@ const { loadEnvFile } = require('node:process');
 
 try {
   loadEnvFile('./.env');
-} catch {}
+} catch { }
 
 module.exports = {
   repo:
-    'https://github.com/' + (process.env.PUBLIC_REPO || 'rodnye/wa-catalog'),
+    'https://github.com/' + (process.env.PUBLIC_REPO || 'joanmat117/wa-catalog'),
   branch: process.env.PUBLIC_REPO_BRANCH || 'root/data',
   mappings: [
     {

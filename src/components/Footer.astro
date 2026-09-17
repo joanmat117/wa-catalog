@@ -51,18 +51,18 @@ const primaryCategories = getCategories()
               Inicio
             </BaseLink>
           </li>
-          {
-            primaryCategories.slice(0, 3).map(({ label, slug }) => (
-              <li>
-                <BaseLink
-                  href={resolveUrlFrom(pn, '/categories/' + slug)}
-                  class="hover:text-primary-500 transition-colors"
-                >
-                  {label}
-                </BaseLink>
-              </li>
-            ))
-          }
+          <!-- { -->
+          <!--   primaryCategories.slice(0, 3).map(({ label, slug }) => ( -->
+          <!--     <li> -->
+          <!--       <BaseLink -->
+          <!--         href={resolveUrlFrom(pn, '/categories/' + slug)} -->
+          <!--         class="hover:text-primary-500 transition-colors" -->
+          <!--       > -->
+          <!--         {label} -->
+          <!--       </BaseLink> -->
+          <!--     </li> -->
+          <!--   )) -->
+          <!-- } -->
         </ul>
       </div>
 
@@ -71,7 +71,7 @@ const primaryCategories = getCategories()
         <h3 class="font-semibold text-gray-800 mb-3">Categorías</h3>
         <ul class="space-y-2 text-sm text-gray-500">
           {
-            primaryCategories.slice(3, 7).map(({ label, slug }) => (
+            primaryCategories.map(({ label, slug }) => (
               <li>
                 <BaseLink
                   href={resolveUrlFrom(pn, '/categories/' + slug)}

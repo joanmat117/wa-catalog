@@ -5,15 +5,24 @@ import BaseLink from './preact/BaseLink';
 import BaseImg from './preact/BaseImg';
 
 const pn = Astro.url.pathname;
+const logoUrl = import.meta.env.PUBLIC_LOGO_IMAGE_URL ?? logoImg.src;
+const brandName = import.meta.env.PUBLIC_APP_NAME ?? 'JMShop';
 ---
 
 <BaseLink
   href={resolveUrlFrom(pn, '/')}
   class="flex items-center gap-2 shrink-0"
 >
-  <BaseImg src={logoImg.src} class="h-12" />
+  {import.meta.env.PUBLIC_LOGO_IMAGE_URL ? (
+    <img
+      src={import.meta.env.PUBLIC_LOGO_IMAGE_URL}
+      alt={brandName}
+      class="h-12"
+    />
+  ) : (
+    <BaseImg src={logoImg.src} class="h-12" />
+  )}
   <span class="font-display font-bold text-xl text-gray-800 sm:block">
-    <span class="text-orange-500">La Gitana</span>
-    <span>Shop</span>
+    {brandName}
   </span>
 </BaseLink>

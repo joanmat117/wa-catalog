@@ -41,8 +41,6 @@ const related = (await loadAllProducts({ withVIP: isVipUrl(pn) }))
 <Layout
   title={`${product.name} — ${APP_NAME}`}
   description={product.description || APP_DESC}
-  iconType="images/png"
-  iconHref={product.images[0] || '/images/placeholder.jpg'}
 >
   <Header withSearch={false} />
 

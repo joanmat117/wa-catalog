@@ -24,12 +24,13 @@ const allProducts = await loadAllProducts({ withVIP: isVipUrl(pn) });
 const linkParser = ({ id }: IProduct) => {
   return resolveUrlFrom(pn, `/products/${id}`);
 };
+
 ---
 
-<Layout iconType="image/webp" iconHref={resolveUrlBase(logoImg.src)}>
+<Layout>
   <Header />
 
-  <main class="max-w-7xl mx-auto px-4 py-6">
+  <main class="max-w-7xl w-full mx-auto px-4 py-6">
     <ProductCatalog
       products={allProducts}
       currentPath={pn}
