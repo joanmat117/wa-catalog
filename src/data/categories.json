@@ -1,24 +1,3 @@
 {
-  "categories": [
-    {
-      "label": "Celulares",
-      "key": "Celulares",
-      "emoji": "📱"
-    },
-    {
-      "label": "Baterias",
-      "key": "Baterias",
-      "emoji": "🔋"
-    },
-    {
-      "label": "Paneles",
-      "key": "Paneles",
-      "emoji": "☀️"
-    },
-    {
-      "emoji": "🍟",
-      "key": "Comida",
-      "label": "Comida"
-    }
-  ]
+  "categories": []
 }
