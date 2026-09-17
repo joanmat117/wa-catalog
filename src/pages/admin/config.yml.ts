@@ -1,7 +1,7 @@
 import { BASE_URL } from '@/utils/helpers';
 import YAML from 'yaml';
 
-export async function GET({}) {
+export async function GET({ }) {
   const siteId =
     import.meta.env.PUBLIC_DECAPBRIDGE_ID ||
     'b24d4304-f503-45ca-b408-da24db405ebb';
@@ -17,10 +17,7 @@ export async function GET({}) {
       name: 'git-gateway',
       repo,
       branch,
-      auth_type: 'pkce',
-      base_url: 'https://auth.decapbridge.com',
-      auth_endpoint: `/sites/${siteId}/pkce`,
-      auth_token_endpoint: `/sites/${siteId}/token`,
+      identity_url: `https://auth.decapbridge.com/sites/${siteId}`,
       gateway_url: 'https://gateway.decapbridge.com',
 
       commit_messages: {
@@ -35,17 +32,9 @@ export async function GET({}) {
           'data: message {{message}} - {{author-name}} via DecapBridge',
       },
     },
-
-    auth: {
-      email_claim: 'email',
-      first_name_claim: 'first_name',
-      last_name_claim: 'last_name',
-      avatar_url_claim: 'avatar_url',
-    },
-
     ...(import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL
-        ? { logo_url: import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL }
-        : {}),
+      ? { logo_url: import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL }
+      : {}),
     site_url: site.replace(/\/$/, '') + BASE_URL,
 
     collections: [
