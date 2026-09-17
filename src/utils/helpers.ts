@@ -62,8 +62,41 @@ export const resolveUrlFrom = (from: string, to: string) => {
 export const clearUrlBase = (path: string) =>
   path.replace(new RegExp('^' + BASE_URL.replace(/\/$/, '')), '');
 
-export function formatPrice(price: number): string {
-  return price.toLocaleString('es-CU') + ' CUP';
+/**
+ * Returns the list of allowed currencies from PUBLIC_ALLOWED_CURRENCIES.
+ * Falls back to ['CUP'] if the variable is empty or not set.
+ */
+export function getAllowedCurrencies(): string[] {
+  const raw = import.meta.env.PUBLIC_ALLOWED_CURRENCIES ?? '';
+  const allowed = raw
+    ? raw.split(',').map((c: string) => c.trim()).filter((c: string): boolean => c.length > 0)
+    : ['CUP'];
+  return allowed;
+}
+
+/**
+ * Returns the default currency (first in the allowed list).
+ */
+export function getDefaultCurrency(): string {
+  return getAllowedCurrencies()[0];
+}
+
+/**
+ * Formats a price number as a localized currency string.
+ * If currency is not provided, uses the default currency.
+ */
+export function formatPrice(price: number): string;
+export function formatPrice(price: number, currency: string): string;
+export function formatPrice(price: number, currency?: string): string {
+  const cur = currency ?? getDefaultCurrency();
+  const localeMap: Record<string, string> = {
+    CUP: 'es-CU',
+    USD: 'en-US',
+    EUR: 'de-DE',
+    // Add more as needed
+  };
+  const locale = localeMap[cur] ?? 'en-US';
+  return price.toLocaleString(locale, { style: 'currency', currency: cur });
 }
 
 export function buildWhatsAppMessage(

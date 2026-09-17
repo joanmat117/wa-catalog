@@ -59,7 +59,7 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
           </p>
           <div class="flex items-center justify-between">
             <span class="font-display font-bold text-primary-600 text-lg">
-              {formatPrice(product.price)}
+              {formatPrice(product.price, product.currency)}
             </span>
           </div>
         </div>
