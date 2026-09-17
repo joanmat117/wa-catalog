@@ -1,14 +1,15 @@
 {
   "price": 65000,
-  "featured": true,
-  "vip": false,
   "available": true,
   "name": "Samsung Galaxy S22",
-  "description": "8gb con 128gb, 3700 mAh de bateria",
+  "featured": true,
+  "currency": "CUP",
+  "images": [
+    "/images/34522.jpg"
+  ],
   "categories": [
     "Celulares"
   ],
-  "images": [
-    "/images/34522.jpg"
-  ]
+  "description": "8gb con 128gb, 3700 mAh de bateria",
+  "vip": false
 }
