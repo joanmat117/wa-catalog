@@ -65,7 +65,6 @@ export default function ProductCatalog({
   }
 
   const featured = products.filter((p) => p.featured);
-  const nonFeatured = products.filter((p) => !p.featured);
   return (
     <>
       {/* Hero */}
@@ -125,7 +124,7 @@ export default function ProductCatalog({
           </h2>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
-          {nonFeatured.map((p) => (
+          {products.map((p) => (
             <ProductCard product={p} currentPath={currentPath} />
           ))}
         </div>
