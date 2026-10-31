@@ -8,8 +8,8 @@ export default function CartToggle() {
   return (
     <button
       onClick={toggleCart}
-      class="relative p-2 rounded-xl text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-colors"
-      aria-label="Carrito"
+      class="relative p-2 rounded-xl text-gray-600 hover:bg-primary-50 hover:text-primary-600 active:scale-95 transition-colors touch-target"
+      aria-label={count > 0 ? `Carrito (${count} productos)` : 'Carrito vacío'}
     >
       <IconShopCar class="size-6" />
       {count > 0 && (

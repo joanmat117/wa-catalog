@@ -20,7 +20,7 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
       class="product-card card group cursor-pointer"
       data-product-id={product.id}
     >
-      <BaseLink href={resolvedLink} class="block">
+      <BaseLink href={resolvedLink} class="block touch-target">
         {/* Image */}
         <div class="relative overflow-hidden aspect-square bg-gray-50">
           <BaseImg
@@ -31,7 +31,7 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
           />
           {product.featured && (
             <span class="flex items-center justify-center absolute top-0 left-0 text-center bg-primary-500 text-white text-xs font-bold px-2.5 py-1 rounded-none shadow-sm w-full">
-              <IconStar class="size-5 mr-1" />
+              <IconStar class="size-5 mr-1" aria-hidden="true" />
               <span> Destacado </span>
             </span>
           )}

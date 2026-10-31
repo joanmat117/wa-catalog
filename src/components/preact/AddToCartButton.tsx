@@ -26,14 +26,14 @@ export default function AddToCartButton({
 
   const baseClasses =
     variant === 'full'
-      ? 'w-full btn-primary text-base py-3.5 flex items-center justify-center gap-2'
-      : 'w-full btn-primary text-sm flex items-center justify-center gap-2';
+      ? 'w-full btn-primary text-base py-3.5 flex items-center justify-center gap-2 touch-target'
+      : 'w-full btn-primary text-sm flex items-center justify-center gap-2 touch-target';
 
   return (
     <button onClick={handleClick} class={`${baseClasses} ${className}`}>
       {variant === 'full' ? (
         <>
-          <IconShopCar class="size-5" />
+          <IconShopCar class="size-5" aria-hidden="true" />
           Agregar al Carrito
         </>
       ) : (
@@ -43,6 +43,7 @@ export default function AddToCartButton({
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               stroke-linecap="round"

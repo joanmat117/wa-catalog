@@ -25,8 +25,8 @@ export default function MobileSearchToggle() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        class="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
-        aria-label="Buscar"
+        class="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 active:scale-95 transition-colors touch-target"
+        aria-label={isOpen ? 'Cerrar búsqueda' : 'Buscar productos'}
       >
         {isOpen ? <IconClose class="size-5" /> : <IconSearch class="size-5" />}
       </button>

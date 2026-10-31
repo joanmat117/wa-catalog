@@ -14,6 +14,7 @@ import IconShopCar from '~icons/assets/shop-car';
 import IconClose from '~icons/mdi/close';
 import IconDelete from '~icons/mdi/trash-can-outline';
 import IconWhatsapp from '~icons/mdi/whatsapp';
+import IconCart from '~icons/mdi/cart';
 import { useUrlStore } from '@/hooks/preact/useUrlStore';
 
 export default function CartSidebar() {
@@ -55,10 +56,10 @@ export default function CartSidebar() {
           </h2>
           <button
             onClick={closeCart}
-            class="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+            class="p-2 rounded-xl flex items-center justify-center text-gray-400 hover:text-gray-600 hover:bg-gray-100 active:scale-95 transition-colors touch-target"
             aria-label="Cerrar carrito"
           >
-            <IconClose />
+            <IconClose aria-hidden="true" />
           </button>
         </div>
 
@@ -66,7 +67,7 @@ export default function CartSidebar() {
         <div class="flex-1 overflow-y-auto p-4">
           {items.length === 0 ? (
             <div class="flex flex-col items-center justify-center h-full text-center">
-              <span class="text-6xl mb-4">🛒</span>
+              <IconCart class="text-6xl text-gray-300 mb-4" aria-hidden="true" />
               <p class="text-gray-500 font-medium mb-1">
                 Tu carrito está vacío
               </p>
@@ -93,7 +94,8 @@ export default function CartSidebar() {
                     <div class="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => updateQuantity(item.id, -1)}
-                        class="w-7 h-7 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-primary-300 hover:text-primary-500 transition-colors"
+                        class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-primary-300 hover:text-primary-500 active:scale-95 transition-colors touch-target"
+                        aria-label="Disminuir cantidad"
                       >
                         -
                       </button>
@@ -102,7 +104,8 @@ export default function CartSidebar() {
                       </span>
                       <button
                         onClick={() => updateQuantity(item.id, 1)}
-                        class="w-7 h-7 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-primary-300 hover:text-primary-500 transition-colors"
+                        class="w-10 h-10 rounded-lg bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:border-primary-300 hover:text-primary-500 active:scale-95 transition-colors touch-target"
+                        aria-label="Aumentar cantidad"
                       >
                         +
                       </button>
@@ -110,9 +113,10 @@ export default function CartSidebar() {
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    class="p-1.5 text-gray-300 hover:text-red-400 transition-colors self-start"
+                    class="p-2 text-gray-300 flex items-center justify-center hover:text-red-400 hover:bg-red-50 active:scale-95 rounded-lg transition-colors self-start touch-target"
+                    aria-label="Eliminar producto"
                   >
-                    <IconDelete class="size-5" />
+                    <IconDelete class="size-5" aria-hidden="true" />
                   </button>
                 </div>
               ))}

@@ -21,6 +21,7 @@ import type { IProduct } from '@/types';
 import IconBack from '~icons/mdi/arrow-left';
 import IconStar from '~icons/mdi/star';
 import IconWhatsapp from '~icons/mdi/whatsapp';
+import IconPackage from '~icons/mdi/package-variant-closed';
 
 interface Props {
   product: IProduct;
@@ -45,7 +46,7 @@ const related = (await loadAllProducts({ withVIP: isVipUrl(pn) }))
 >
   <Header withSearch={false} />
 
-  <main class="max-w-7xl mx-auto px-4 py-6">
+  <main id="main-content" class="max-w-7xl mx-auto px-4 py-6">
     <nav class="mb-5">
       <BaseLink
         href={resolveUrlFrom(pn, '/')}
@@ -69,9 +70,9 @@ const related = (await loadAllProducts({ withVIP: isVipUrl(pn) }))
               return (
                 <BaseLink
                   href={resolveUrlFrom(pn, `/categories/${slug}`)}
-                  class="badge hover:bg-primary-200 gap-1 transition-colors cursor-pointer"
+                  class="badge hover:bg-primary-200 gap-1 transition-colors cursor-pointer touch-target"
                 >
-                <span>
+                <span aria-hidden="true">
                   {emoji}
                   </span>
                   <span>
@@ -95,7 +96,7 @@ const related = (await loadAllProducts({ withVIP: isVipUrl(pn) }))
           {
             product.featured && (
               <span class="flex items-center bg-primary-100 text-primary-700 text-xs font-bold px-2.5 py-1 rounded-full">
-                <IconStar class=" size-5 mr-1" />
+                <IconStar class=" size-5 mr-1" aria-hidden="true" />
                 <span> Destacado </span>
               </span>
             )
@@ -128,9 +129,9 @@ const related = (await loadAllProducts({ withVIP: isVipUrl(pn) }))
           <BaseLink
             href={`${WHATSAPP_LINK}?text=${encodeURIComponent(`Hola, me interesa el producto: ${product.name} (${formatPrice(product.price, product.currency)})`)}`}
             target="_blank"
-            class="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 border border-slate-300"
+            class="w-full bg-slate-50 hover:bg-slate-100 text-slate-700 font-semibold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 border border-slate-300 touch-target"
           >
-            <IconWhatsapp class="size-7" />
+            <IconWhatsapp class="size-7" aria-hidden="true" />
             Preguntar por WhatsApp
           </BaseLink>
         </div>

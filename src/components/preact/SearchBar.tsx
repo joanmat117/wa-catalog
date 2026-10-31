@@ -21,13 +21,17 @@ export default function SearchBar({
 
   return (
     <div class="relative w-full">
+      <label htmlFor="search-input" class="sr-only">Buscar productos</label>
       <input
-        type="text"
+        id="search-input"
+        type="search"
         placeholder={placeholder}
         class="input-field rounded-full pl-10 pr-4"
         onInput={handleInput}
+        aria-label="Buscar productos"
+        autoComplete="off"
       />
-      <IconSearch class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" />
+      <IconSearch class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" aria-hidden="true" />
     </div>
   );
 }

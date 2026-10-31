@@ -21,6 +21,8 @@ export const STORE_LOCATION =
 export const STORE_HOURS =
   import.meta.env.PUBLIC_STORE_HOURS || 'Lunes a Domingo: 11am - 8pm';
 export const CURRENCY = "USD"
+export const HERO_IMAGE_URL =
+  import.meta.env.PUBLIC_HERO_IMAGE_URL || '/images/hero-bg.jpg'
 
 /**
  *

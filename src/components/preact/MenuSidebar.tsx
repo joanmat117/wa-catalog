@@ -52,10 +52,10 @@ export default function MenuSidebar({ activeCategory = '' }: Props) {
           </h2>
           <button
             onClick={closeMenu}
-            class="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
+            class="p-2 rounded-xl text-gray-400 hover:text-gray-600 hover:bg-gray-100 active:scale-95 transition-colors touch-target"
             aria-label="Cerrar menú"
           >
-            <IconClose class="size-5" />
+            <IconClose class="size-5" aria-hidden="true" />
           </button>
         </div>
 
@@ -71,10 +71,10 @@ export default function MenuSidebar({ activeCategory = '' }: Props) {
                   activeCategory === ''
                     ? 'bg-primary-500 text-white shadow-sm'
                     : 'bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600',
-                ].join(' ')}
+                  ].join(' ')}
               >
                 <div class="flex items-center gap-3">
-                  <span class="text-xl">🏠</span>
+                  <span class="text-xl" aria-hidden="true">🏠</span>
                   <span>Todo</span>
                 </div>
               </BaseLink>
@@ -92,7 +92,7 @@ export default function MenuSidebar({ activeCategory = '' }: Props) {
                   ].join(' ')}
                 >
                   <div class="flex items-center gap-3">
-                    <span class="text-xl">{cat.emoji}</span>
+                    <span class="text-xl" aria-hidden="true">{cat.emoji}</span>
                     <span>{cat.label}</span>
                   </div>
                 </BaseLink>

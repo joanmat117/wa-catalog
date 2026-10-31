@@ -11,7 +11,7 @@ export default function MenuToggle() {
   return (
     <button
       onClick={handleClick}
-      class="shrink-0 lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600 transition-all duration-200"
+      class="shrink-0 lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 text-gray-600 hover:bg-primary-50 hover:text-primary-600 active:scale-95 transition-all duration-200 touch-target"
       aria-label="Menú de categorías"
     >
       <IconMenu class="size-5" />

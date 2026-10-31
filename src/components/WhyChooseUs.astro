@@ -1,0 +1,29 @@
+---
+import { APP_NAME } from '@/utils/helpers';
+import IconTruck from '~icons/mdi/truck-fast';
+import IconShield from '~icons/mdi/shield-check';
+import IconCash from '~icons/mdi/cash-multiple';
+import IconHeadset from '~icons/mdi/headset';
+
+const features = [
+  { Icon: IconTruck, title: 'Envío Rápido', desc: 'Entrega en 24-48h en La Habana' },
+  { Icon: IconShield, title: 'Garantía', desc: 'Todos los productos con garantía' },
+  { Icon: IconCash, title: 'Mejores Precios', desc: 'Precios directos sin intermediarios' },
+  { Icon: IconHeadset, title: 'Soporte 24/7', desc: 'Atención por WhatsApp siempre disponible' },
+];
+---
+
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl text-gray-800 text-center mb-12">¿Por qué elegir {APP_NAME}?</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {features.map(({ Icon, title, desc }) => (
+        <div class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition text-center">
+          <div class="text-primary-600 mb-4 inline-flex"><Icon class="size-10" aria-hidden="true" /></div>
+          <h3 class="font-semibold text-gray-800 mb-2">{title}</h3>
+          <p class="text-gray-500 text-sm">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

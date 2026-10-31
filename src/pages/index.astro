@@ -2,10 +2,23 @@
 import Layout from "@/layouts/_Layout.astro"
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import Hero from '@/components/Hero.astro';
+import WhyChooseUs from '@/components/WhyChooseUs.astro';
+import FinalCta from '@/components/FinalCta.astro';
+import FeaturedProducts from '@/components/preact/FeaturedProducts';
+import { loadAllProducts } from '@/lib/products';
+
+const products = await loadAllProducts({ withVIP: false });
+const featuredProducts = products.filter(p => p.featured);
 ---
 
 <Layout>
-  <Header withSearch={false}/>
-  Inicio Landing
-  <Footer/>
+  <Header withSearch={false} />
+  <main id="main-content">
+    <Hero />
+    <FeaturedProducts products={featuredProducts} client:load />
+    <WhyChooseUs />
+    <FinalCta />
+  </main>
+  <Footer />
 </Layout>

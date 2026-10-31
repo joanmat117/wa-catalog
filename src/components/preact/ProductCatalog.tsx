@@ -6,6 +6,7 @@ import BaseLink from './BaseLink';
 import { useUrlStore } from '@/hooks/preact/useUrlStore';
 import IconShopBag from '~icons/mdi/shopping';
 import IconStar from '~icons/mdi/star';
+import IconSearch from '~icons/mdi/search';
 import ProductCard from './ProductCard';
 
 interface ProductCatalogProps {
@@ -56,7 +57,7 @@ export default function ProductCatalog({
           </div>
         ) : (
           <p class="text-center text-gray-400 py-12">
-            <span class="text-4xl block mb-3">🔍</span>
+            <IconSearch class="text-4xl block mb-3 text-gray-300" aria-hidden="true" />
             No encontramos productos con esa búsqueda
           </p>
         )}

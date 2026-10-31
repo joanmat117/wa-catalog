@@ -1,0 +1,19 @@
+---
+import { WHATSAPP_LINK } from '@/utils/helpers';
+import BaseLink from '@/components/preact/BaseLink';
+---
+
+<section class="py-16 bg-primary-600 text-white">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <h2 class="font-display font-bold text-2xl sm:text-3xl mb-4">¿Listo para dar el paso?</h2>
+    <p class="text-white/80 mb-8">Únete a cientos de clientes satisfechos. Haz tu pedido ahora por WhatsApp.</p>
+    <BaseLink
+      href={WHATSAPP_LINK}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="bg-white text-primary-600 font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition shadow-lg inline-block touch-target"
+    >
+      Ir a WhatsApp
+    </BaseLink>
+  </div>
+</section>
