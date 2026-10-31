@@ -70,7 +70,7 @@ export default function ProductCatalog({
       {/* Hero */}
       {withHero && (
         <section class="mb-8">
-          <div class="bg-gradient-to-br from-primary-400 via-primary-500 to-sand-500 md:rounded-3xl -mx-4 -mt-6 md:m-auto p-6 sm:p-10 text-white relative overflow-hidden">
+          <div class="bg-gradient-to-br from-primary-500 to-primary-600 md:rounded-3xl -mx-4 -mt-6 md:m-auto p-6 sm:p-10 text-white relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/4"></div>
             <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full translate-y-1/3 -translate-x-1/4"></div>
             <div class="relative z-10">
@@ -103,8 +103,8 @@ export default function ProductCatalog({
       {featured.length > 0 && (
         <section class="mb-10">
           <div class="flex items-center justify-between mb-5">
-            <h2 class="flex items-center font-display font-bold text-xl sm:text-2xl text-gray-800">
-              <IconStar class="size-8 mr-2 text-yellow-400" />
+            <h2 class="flex items-center gap-2 font-display font-bold text-xl sm:text-2xl text-gray-800">
+              <IconStar class="size-8 " />
               <span> Destacados </span>
             </h2>
           </div>
@@ -118,12 +118,12 @@ export default function ProductCatalog({
 
       <section id="products" class="mb-10">
         <div class="flex items-center justify-between mb-5">
-          <h2 class="font-display font-bold text-xl sm:text-2xl flex items-center text-gray-800">
-            <IconShopBag class="size-8 mr-2 text-primary-500" />
+          <h2 class="font-display font-bold text-xl sm:text-2xl flex items-center gap-2 text-gray-800">
+            <IconShopBag class="size-8" />
             <span> Todos los productos </span>
           </h2>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-5">
           {products.map((p) => (
             <ProductCard product={p} currentPath={currentPath} />
           ))}

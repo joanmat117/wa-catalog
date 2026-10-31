@@ -13,7 +13,6 @@ import {
   WHATSAPP_LINK,
 } from '@/utils/helpers';
 import type { IProduct } from '@/types';
-import logoImg from '@/assets/logo_only_icon.webp';
 import ProductCatalog from '@/components/preact/ProductCatalog';
 
 const pn = Astro.url.pathname;
@@ -30,11 +29,11 @@ const linkParser = ({ id }: IProduct) => {
 <Layout>
   <Header />
 
-  <main class="max-w-7xl w-full mx-auto px-4 py-6">
+  <main class="max-w-7xl w-full mx-auto px-3 md:px-4 py-6">
     <ProductCatalog
       products={allProducts}
       currentPath={pn}
-      withHero={true}
+      withHero={false}
       client:load
     />
   </main>

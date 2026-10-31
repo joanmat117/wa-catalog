@@ -1,5 +1,11 @@
 ---
-import HomeLayout from '@/layouts/HomeLayout.astro';
+import Layout from "@/layouts/_Layout.astro"
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
 ---
 
-<HomeLayout />
+<Layout>
+  <Header withSearch={false}/>
+  Inicio Landing
+  <Footer/>
+</Layout>

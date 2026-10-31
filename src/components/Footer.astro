@@ -34,7 +34,7 @@ const primaryCategories = getCategories()
       <!-- Brand -->
       <div class="sm:col-span-2 lg:col-span-1">
         <Logo />
-        <p class="text-sm text-gray-500 leading-relaxed">
+        <p class="text-sm mt-2 text-gray-500 leading-relaxed">
           {APP_DESC}
         </p>
       </div>
@@ -49,6 +49,14 @@ const primaryCategories = getCategories()
               class="hover:text-primary-500 transition-colors"
             >
               Inicio
+            </BaseLink>
+          </li>
+<li>
+            <BaseLink
+              href={resolveUrlFrom(pn, '/products')}
+              class="hover:text-primary-500 transition-colors"
+            >
+              Productos
             </BaseLink>
           </li>
           <!-- { -->
@@ -90,7 +98,7 @@ const primaryCategories = getCategories()
         <h3 class="font-semibold text-gray-800 mb-3">Contacto</h3>
         <ul class="space-y-2 text-sm text-gray-500">
           <li class="flex items-center gap-2">
-            <IconWhatsapp class="text-lg text-green-600" />
+            <IconWhatsapp class="text-lg text-slate-900" />
             <BaseLink
               href={'https://wa.me/' + WHATSAPP_NUMBER}
               class="hover:text-primary-500 transition-colors"
@@ -99,21 +107,22 @@ const primaryCategories = getCategories()
             </BaseLink>
           </li>
           <li class="flex items-center gap-2">
-            <IconMapMarker class="text-lg text-red-400" />
+            <IconMapMarker class="text-lg text-slate-900" />
             <span>{STORE_LOCATION}</span>
           </li>
           <li class="flex items-center gap-2">
-            <IconClockOutline class="text-lg text-blue-700" />
+            <IconClockOutline class="text-lg text-slate-900" />
             <span>{STORE_HOURS}</span>
           </li>
         </ul>
       </div>
 
-      <div
-        class="mt-8 pt-6 border-t border-gray-100 text-center text-sm text-gray-400"
+      
+    </div>
+<div
+        class="mt-8 pt-6 border-t border-gray-100 text-center w-full text-sm text-gray-400"
       >
         <p>&copy; {year} {APP_NAME}. Todos los derechos reservados.</p>
       </div>
-    </div>
   </div>
 </footer>

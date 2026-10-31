@@ -26,7 +26,7 @@ export default function AddToCartButton({
 
   const baseClasses =
     variant === 'full'
-      ? 'w-full btn-accent text-base py-3.5 flex items-center justify-center gap-2'
+      ? 'w-full btn-primary text-base py-3.5 flex items-center justify-center gap-2'
       : 'w-full btn-primary text-sm flex items-center justify-center gap-2';
 
   return (

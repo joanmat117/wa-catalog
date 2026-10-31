@@ -24,7 +24,7 @@ export default function SearchBar({
       <input
         type="text"
         placeholder={placeholder}
-        class="input-field pl-10 pr-4"
+        class="input-field rounded-full pl-10 pr-4"
         onInput={handleInput}
       />
       <IconSearch class="absolute left-3 top-1/2 -translate-y-1/2 size-5 text-gray-400" />

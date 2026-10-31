@@ -1,7 +1,8 @@
 export const BASE_URL = import.meta.env.PUBLIC_BASE_URL ?? import.meta.env.BASE_URL ?? '/';
-
+export const OG_IMAGE_URL = import.meta.env.PUBLIC_OG_IMAGE_URL || "/og.jpg"
+export const LOGO_URL = import.meta.env.PUBLIC_LOGO_IMAGE_URL || "/logo.png"
 export const APP_VIP_CODE = import.meta.env.PUBLIC_APP_VIP_CODE || 'jmcode';
-export const APP_NAME = import.meta.env.PUBLIC_APP_NAME || 'JMShop';
+export const APP_NAME = import.meta.env.PUBLIC_APP_NAME || 'Nombre de la marca';
 export const APP_DESC =
   import.meta.env.PUBLIC_APP_DESC ||
   'Tienda variada con los mejores productos al mejor precio.';
@@ -19,6 +20,7 @@ export const STORE_LOCATION =
   import.meta.env.PUBLIC_STORE_LOCATION || 'La Habana, Cuba';
 export const STORE_HOURS =
   import.meta.env.PUBLIC_STORE_HOURS || 'Lunes a Domingo: 11am - 8pm';
+export const CURRENCY = "USD"
 
 /**
  *
@@ -63,32 +65,13 @@ export const clearUrlBase = (path: string) =>
   path.replace(new RegExp('^' + BASE_URL.replace(/\/$/, '')), '');
 
 /**
- * Returns the list of allowed currencies from PUBLIC_ALLOWED_CURRENCIES.
- * Falls back to ['CUP'] if the variable is empty or not set.
- */
-export function getAllowedCurrencies(): string[] {
-  const raw = import.meta.env.PUBLIC_ALLOWED_CURRENCIES ?? '';
-  const allowed = raw
-    ? raw.split(',').map((c: string) => c.trim()).filter((c: string): boolean => c.length > 0)
-    : ['CUP'];
-  return allowed;
-}
-
-/**
- * Returns the default currency (first in the allowed list).
- */
-export function getDefaultCurrency(): string {
-  return getAllowedCurrencies()[0];
-}
-
-/**
  * Formats a price number as a localized currency string.
  * If currency is not provided, uses the default currency.
  */
 export function formatPrice(price: number): string;
 export function formatPrice(price: number, currency: string): string;
 export function formatPrice(price: number, currency?: string): string {
-  const cur = currency ?? getDefaultCurrency();
+  const cur = currency || CURRENCY
   const localeMap: Record<string, string> = {
     CUP: 'es-CU',
     USD: 'en-US',

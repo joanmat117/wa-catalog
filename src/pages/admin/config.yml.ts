@@ -9,16 +9,6 @@ export async function GET({ }) {
   const branch = import.meta.env.PUBLIC_REPO_BRANCH || 'main';
   const site = import.meta.env.SITE;
 
-  // Currency options for DecapCMS
-  const CURRENCY_RAW = import.meta.env.PUBLIC_ALLOWED_CURRENCIES ?? '';
-  const CURRENCIES = CURRENCY_RAW
-    ? CURRENCY_RAW.split(',').map((c: string) => c.trim()).filter((c: string): boolean => c.length > 0)
-    : ['CUP'];
-  const CURRENCY_OPTIONS = CURRENCIES.map((cur: string) => ({
-    label: cur,
-    value: cur,
-  }));
-
   const config = {
     media_folder: '/public/images',
     public_folder: '/images',
@@ -74,24 +64,17 @@ export async function GET({ }) {
             step: 200,
           },
           {
-            label: 'Moneda',
-            name: 'currency',
-            widget: 'select',
-            options: CURRENCY_OPTIONS,
-            default: CURRENCIES[0],
-          },
-          {
             label: 'Es un producto destacado?',
             name: 'featured',
             widget: 'boolean',
             default: false,
           },
-          {
-            label: 'Es VIP?',
-            name: 'vip',
-            widget: 'boolean',
-            default: false,
-          },
+          // {
+          //   label: 'Es VIP?',
+          //   name: 'vip',
+          //   widget: 'boolean',
+          //   default: false,
+          // },
           {
             label: 'Está disponible?',
             name: 'available',
@@ -110,7 +93,7 @@ export async function GET({ }) {
             field: { label: 'Imagen', name: 'image', widget: 'image' },
           },
           {
-            label: 'Categorías',
+            label: 'Categoría del producto',
             name: 'categories',
             widget: 'relation',
             collection: 'config',

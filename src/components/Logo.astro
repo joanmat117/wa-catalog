@@ -1,27 +1,21 @@
 ---
-import logoImg from '@/assets/logo_only_icon.webp';
-import { resolveUrlFrom } from '@/utils/helpers';
+import { resolveUrlFrom,APP_NAME,LOGO_URL } from '@/utils/helpers';
 import BaseLink from './preact/BaseLink';
 import BaseImg from './preact/BaseImg';
 
 const pn = Astro.url.pathname;
-const logoUrl = import.meta.env.PUBLIC_LOGO_IMAGE_URL ?? logoImg.src;
-const brandName = import.meta.env.PUBLIC_APP_NAME ?? 'JMShop';
+const brandName = APP_NAME
 ---
 
 <BaseLink
   href={resolveUrlFrom(pn, '/')}
   class="flex items-center gap-2 shrink-0"
 >
-  {import.meta.env.PUBLIC_LOGO_IMAGE_URL ? (
     <img
-      src={import.meta.env.PUBLIC_LOGO_IMAGE_URL}
+      src={LOGO_URL}
       alt={brandName}
-      class="h-12"
+      class="h-8"
     />
-  ) : (
-    <BaseImg src={logoImg.src} class="h-12" />
-  )}
   <span class="font-display font-bold text-xl text-gray-800 sm:block">
     {brandName}
   </span>

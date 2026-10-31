@@ -37,22 +37,20 @@ export default function CartSidebar() {
     <>
       {/* Overlay */}
       <div
-        class={`cart-overlay fixed inset-0 bg-black/50 z-[60] ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        class={`cart-overlay fixed inset-0 bg-black/50 z-[60] ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
         onClick={closeCart}
       />
 
       {/* Panel */}
       <aside
-        class={`cart-panel fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl flex flex-col ${
-          isOpen ? '' : 'translate-x-full'
-        }`}
+        class={`cart-panel fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-[70] shadow-2xl flex flex-col ${isOpen ? '' : 'translate-x-full'
+          }`}
       >
         {/* Header */}
         <div class="flex items-center justify-between p-4 border-b border-gray-100">
           <h2 class="font-display font-bold text-lg text-gray-800 flex items-center gap-2">
-            <IconShopCar class="size-5 text-primary-500" />
+            <IconShopCar class="size-5" />
             <span> Mi Carrito </span>
           </h2>
           <button
@@ -79,7 +77,7 @@ export default function CartSidebar() {
           ) : (
             <div class="space-y-3">
               {items.map((item) => (
-                <div key={item.id} class="flex gap-3 bg-gray-50 rounded-xl p-3">
+                <div key={item.id} class="flex gap-3 bg-gray-50 rounded-lg border border-slate-200 p-3">
                   <BaseImg
                     src={item.image || '/images/placeholder.jpg'}
                     alt={item.name}
@@ -133,7 +131,7 @@ export default function CartSidebar() {
             </div>
             <button
               onClick={handleCheckout}
-              class="w-full btn-accent text-base py-3 flex items-center justify-center gap-2"
+              class="w-full btn-primary shadow-md shadow-primary-100 text-base py-3 flex items-center justify-center gap-2"
             >
               <IconWhatsapp class="size-6" />
               Pedir por WhatsApp

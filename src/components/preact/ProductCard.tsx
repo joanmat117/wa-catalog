@@ -2,7 +2,7 @@ import { getCategoryByKey } from '@/lib/categories';
 import AddToCartButton from '@/components/preact/AddToCartButton';
 import IconStar from '~icons/mdi/star';
 import type { IProduct } from '@/types';
-import { formatPrice, resolveUrlFrom } from '@/utils/helpers';
+import { formatPrice, resolveUrlFrom, CURRENCY } from '@/utils/helpers';
 import BaseImg from './BaseImg';
 import BaseLink from './BaseLink';
 
@@ -30,8 +30,8 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
             loading="lazy"
           />
           {product.featured && (
-            <span class="flex items-center absolute top-3 left-3 bg-accent-500 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow-sm">
-              <IconStar class="text-yellow-400 size-5 mr-1" />
+            <span class="flex items-center justify-center absolute top-0 left-0 text-center bg-primary-500 text-white text-xs font-bold px-2.5 py-1 rounded-none shadow-sm w-full">
+              <IconStar class="size-5 mr-1" />
               <span> Destacado </span>
             </span>
           )}
@@ -45,21 +45,21 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
         </div>
 
         {/* Info */}
-        <div class="p-4">
+        <div class="p-2 md:p-4">
           <div class="flex flex-wrap gap-1.5 mb-2">
             {product.categories.slice(0, 2).map((cat) => (
               <span class="badge">{getCategoryByKey(cat).label}</span>
             ))}
           </div>
-          <h3 class="font-semibold text-gray-800 text-sm leading-snug mb-1 line-clamp-2 group-hover:text-primary-600 transition-colors">
+          <h3 class="font-semibold text-gray-800 text-sm md:text-lg leading-snug mb-1 line-clamp-2 group-hover:text-primary-600 transition-colors">
             {product.name}
           </h3>
-          <p class="text-xs text-gray-500 line-clamp-2 mb-3">
+          <p class="text-xs text-gray-500 line-clamp-1 mb-1.5">
             {product.description}
           </p>
           <div class="flex items-center justify-between">
             <span class="font-display font-bold text-primary-600 text-lg">
-              {formatPrice(product.price, product.currency)}
+              {formatPrice(product.price, CURRENCY)}
             </span>
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
 
       {/* Add to cart button */}
       {product.available && (
-        <div class="px-4 pb-4">
+        <div class="p-2 pt-0 mt-auto">
           <AddToCartButton
             productId={product.id}
             productName={product.name}
