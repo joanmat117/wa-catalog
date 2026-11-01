@@ -35,7 +35,7 @@ export default {
       },
       fontFamily: {
         sans: ['Google Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Merriweather', 'Google Sans', 'sans-serif'],
+        display: ['Merriweather', 'sans-serif'],
       },
     },
   },

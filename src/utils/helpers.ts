@@ -23,6 +23,10 @@ export const STORE_HOURS =
 export const CURRENCY = "USD"
 export const HERO_IMAGE_URL =
   import.meta.env.PUBLIC_HERO_IMAGE_URL || '/images/hero-bg.jpg'
+export const GALLERY_IMAGES =
+  import.meta.env.PUBLIC_GALLERY_IMAGES
+    ? import.meta.env.PUBLIC_GALLERY_IMAGES.split(',').map((u: string) => u.trim())
+    : []
 
 /**
  *
