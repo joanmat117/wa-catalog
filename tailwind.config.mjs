@@ -34,8 +34,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Google Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Merriweather', 'sans-serif'],
+        sans: ['Kanit', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Kanit', 'sans-serif'],
       },
     },
   },

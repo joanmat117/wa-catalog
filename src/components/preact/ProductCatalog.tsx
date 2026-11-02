@@ -65,7 +65,7 @@ export default function ProductCatalog({
     );
   }
 
-  const featured = products.filter((p) => p.featured);
+  // const featured = products.filter((p) => p.featured);
   return (
     <>
       {/* Hero */}
@@ -101,21 +101,21 @@ export default function ProductCatalog({
         </section>
       )}
 
-      {featured.length > 0 && (
-        <section class="mb-10">
-          <div class="flex items-center justify-between mb-5">
-            <h2 class="flex items-center gap-2 font-display font-bold text-xl sm:text-2xl text-gray-800">
-              <IconStar class="size-8 " />
-              <span> Destacados </span>
-            </h2>
-          </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
-            {featured.map((p) => (
-              <ProductCard product={p} currentPath={currentPath} />
-            ))}
-          </div>
-        </section>
-      )}
+      {/* {featured.length > 0 && ( */}
+      {/*   <section class="mb-10"> */}
+      {/*     <div class="flex items-center justify-between mb-5"> */}
+      {/*       <h2 class="flex items-center gap-2 font-display font-bold text-xl sm:text-2xl text-gray-800"> */}
+      {/*         <IconStar class="size-8 " /> */}
+      {/*         <span> Destacados </span> */}
+      {/*       </h2> */}
+      {/*     </div> */}
+      {/*     <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5"> */}
+      {/*       {featured.map((p) => ( */}
+      {/*         <ProductCard product={p} currentPath={currentPath} /> */}
+      {/*       ))} */}
+      {/*     </div> */}
+      {/*   </section> */}
+      {/* )} */}
 
       <section id="products" class="mb-10">
         <div class="flex items-center justify-between mb-5">

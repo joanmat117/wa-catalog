@@ -8,7 +8,7 @@ import { loadEnvFile } from 'node:process';
 
 try {
   loadEnvFile('./.env');
-} catch {}
+} catch { }
 
 const PUBLIC_BASE_URL = process.env.PUBLIC_BASE_URL || '/';
 const PUBLIC_SITE = process.env.PUBLIC_SITE;
@@ -20,7 +20,9 @@ const customCollections: Options['customCollections'] = {
 // https://astro.build/config
 export default defineConfig({
   integrations: [preact()],
-
+  devToolbar: {
+    enabled: false
+  },
   site: PUBLIC_SITE || 'http://0.0.0.0',
   base: PUBLIC_BASE_URL || '/',
   build: {

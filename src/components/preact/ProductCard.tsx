@@ -30,7 +30,7 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
             loading="lazy"
           />
           {product.featured && (
-            <span class="flex items-center justify-center absolute top-0 left-0 text-center bg-primary-500 text-white text-xs font-bold px-2.5 py-1 rounded-none shadow-sm w-full">
+            <span class="flex items-center justify-center absolute top-0 left-0 text-center bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-none shadow-sm w-full">
               <IconStar class="size-5 mr-1" aria-hidden="true" />
               <span> Destacado </span>
             </span>
@@ -47,9 +47,13 @@ export default function ProductCard({ product, currentPath = '/' }: Props) {
         {/* Info */}
         <div class="p-2 md:p-4">
           <div class="flex flex-wrap gap-1.5 mb-2">
-            {product.categories.slice(0, 2).map((cat) => (
-              <span class="badge">{getCategoryByKey(cat).label}</span>
-            ))}
+            {product.categories
+              .slice(0, 2)
+              .map((cat) => getCategoryByKey(cat))
+              .filter(Boolean)
+              .map((cat) => (
+                <span key={cat.key} class="badge">{cat.label}</span>
+              ))}
           </div>
           <h3 class="font-semibold text-gray-800 text-sm md:text-lg leading-snug mb-1 line-clamp-2 group-hover:text-primary-600 transition-colors">
             {product.name}
