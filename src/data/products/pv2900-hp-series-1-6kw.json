@@ -1,0 +1,13 @@
+{
+  "price": 400,
+  "featured": false,
+  "available": true,
+  "name": "PV2900 HP Series (1-6KW)",
+  "description": " ",
+  "images": [
+    "/images/42386.jpg"
+  ],
+  "categories": [
+    "inversores"
+  ]
+}
