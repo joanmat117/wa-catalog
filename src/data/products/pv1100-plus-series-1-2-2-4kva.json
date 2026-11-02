@@ -1,0 +1,13 @@
+{
+  "price": 340,
+  "featured": false,
+  "available": true,
+  "name": "PV1100 PLUS Series (1.2-2.4KVA)",
+  "description": " Inversor hibrido Off-Grid inteligente",
+  "images": [
+    "/images/42387.jpg"
+  ],
+  "categories": [
+    "inversores"
+  ]
+}
