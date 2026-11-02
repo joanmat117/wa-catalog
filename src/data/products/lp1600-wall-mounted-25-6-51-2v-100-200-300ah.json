@@ -1,0 +1,13 @@
+{
+  "price": 890,
+  "featured": true,
+  "available": true,
+  "name": "LP1600 Wall-mounted (25.6/51.2V-100/200/300Ah)",
+  "description": "Flexible, compacto y facil instalacion",
+  "images": [
+    "/images/42390.jpg"
+  ],
+  "categories": [
+    "baterias"
+  ]
+}
