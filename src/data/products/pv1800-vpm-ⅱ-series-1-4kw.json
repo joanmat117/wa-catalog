@@ -1,0 +1,13 @@
+{
+  "price": 750,
+  "featured": true,
+  "available": true,
+  "name": "PV1800 VPM Ⅱ Series (1-4KW)",
+  "description": "Inversor MUST off-grid de alta frecuencia",
+  "images": [
+    "/images/42384.jpg"
+  ],
+  "categories": [
+    "inversores"
+  ]
+}
