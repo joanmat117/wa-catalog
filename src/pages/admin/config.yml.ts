@@ -4,7 +4,7 @@ import YAML from 'yaml';
 export async function GET({ }) {
   const siteId =
     import.meta.env.PUBLIC_DECAPBRIDGE_ID ||
-    'b24d4304-f503-45ca-b408-da24db405ebb';
+    '947a0ea6-f1cd-480f-9552-1ff2b7bdc7e3';
   const repo = import.meta.env.PUBLIC_REPO || 'joanmat117/wa-catalog';
   const branch = import.meta.env.PUBLIC_REPO_BRANCH || 'main';
   const site = import.meta.env.SITE;
@@ -17,24 +17,39 @@ export async function GET({ }) {
       name: 'git-gateway',
       repo,
       branch,
-      identity_url: `https://auth.decapbridge.com/sites/${siteId}`,
+      auth_type: 'pkce',
+      base_url: 'https://auth.decapbridge.com',
+      auth_endpoint: `/sites/${siteId}/pkce`,
+      auth_token_endpoint: `/sites/${siteId}/token`,
       gateway_url: 'https://gateway.decapbridge.com',
 
       commit_messages: {
-        create: 'data: create "{{slug}}" - {{author-name}} via DecapBridge',
-        update: 'data: update "{{slug}}" - {{author-name}} via DecapBridge',
-        delete: 'data: delete "{{slug}}" - {{author-name}} via DecapBridge',
+        create: 'Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge',
+        update: 'Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge',
+        delete: 'Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge',
         uploadMedia:
-          'data: upload "{{path}}" - {{author-name}} via DecapBridge',
+          'Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge',
         deleteMedia:
-          'data: delete "{{path}}" - {{author-name}} via DecapBridge',
+          'Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge',
         openAuthoring:
-          'data: message {{message}} - {{author-name}} via DecapBridge',
+          'Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge',
       },
     },
-    ...(import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL
-      ? { logo_url: import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL }
-      : {}),
+
+    // Enable PKCE fields (optional, recommended)
+    auth: {
+      email_claim: 'email',
+      first_name_claim: 'first_name',
+      last_name_claim: 'last_name',
+      avatar_url_claim: 'avatar_url',
+    },
+
+    // Better Decap + Bridge logo (optional)
+    logo_url:
+      import.meta.env.PUBLIC_DECAP_CMS_LOGO_URL ||
+      'https://decapbridge.com/decapcms-with-bridge.svg',
+
+    // Add site links in Decap CMS (optional)
     site_url: site.replace(/\/$/, '') + BASE_URL,
 
     collections: [
