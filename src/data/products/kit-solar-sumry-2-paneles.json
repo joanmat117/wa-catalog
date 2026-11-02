@@ -1,0 +1,13 @@
+{
+  "price": 1920,
+  "featured": true,
+  "available": true,
+  "name": "Kit Solar Sumry, 2 Paneles",
+  "description": "Garantia de 3 meses, instalacion incluida",
+  "images": [
+    "/images/42382.jpg"
+  ],
+  "categories": [
+    "kits"
+  ]
+}
