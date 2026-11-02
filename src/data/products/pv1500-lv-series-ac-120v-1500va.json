@@ -1,0 +1,13 @@
+{
+  "price": 450,
+  "featured": false,
+  "available": true,
+  "name": "PV1500 LV Series (AC:120V 1500VA)",
+  "description": " ",
+  "images": [
+    "/images/42388.jpg"
+  ],
+  "categories": [
+    "inversores"
+  ]
+}
