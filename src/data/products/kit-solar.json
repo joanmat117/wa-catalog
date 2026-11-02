@@ -1,0 +1,13 @@
+{
+  "price": 7020,
+  "featured": true,
+  "available": true,
+  "categories": [
+    "kits"
+  ],
+  "name": "Kit Solar",
+  "description": "Garantia de 3 meses, instalacion incluida",
+  "images": [
+    "/images/42379.jpg"
+  ]
+}
