@@ -1,19 +1,24 @@
 {
   "categories": [
     {
-      "emoji": "📱",
-      "key": "celulares",
-      "label": "Celulares"
+      "emoji": "🔩",
+      "key": "kits",
+      "label": "Kits"
     },
     {
-      "emoji": "🛡",
-      "key": "covers",
-      "label": "Covers"
+      "emoji": "⚡️",
+      "key": "inversores",
+      "label": "Inversores"
     },
     {
       "emoji": "🔋",
-      "key": "powerbanks",
-      "label": "Powerbanks"
+      "key": "baterias",
+      "label": "Baterias"
+    },
+    {
+      "emoji": "☀️",
+      "key": "paneles",
+      "label": "Paneles"
     }
   ]
 }
